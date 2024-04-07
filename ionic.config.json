@@ -1,0 +1,7 @@
+{
+  "name": "OilChange",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
