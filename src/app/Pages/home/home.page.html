@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-users></app-users>
+
+  <div>
+    <ion-grid class="ion-text-center">
+      <ion-row class="ion-text-center">
+        <ion-col class="ion-text-center ion-justify-content-center">
+          <ion-button (click)="setVehInfo()">Set Veh Info</ion-button>
+        </ion-col>
+        <ion-col class="ion-text-center ion-justify-content-center">
+          <ion-button [disabled]="!readyToPrint" (click)="testPrint()">Test Print</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
