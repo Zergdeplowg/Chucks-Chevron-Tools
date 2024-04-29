@@ -1,0 +1,12 @@
+services:
+    api:
+      build:
+        context: Server
+      stop_signal: SIGINT
+      ports:
+        - '5000:5000'
+    web:
+      build:
+        context: OilChangeApp
+      ports:
+        - '80:80'
