@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button shape="round" (click)="goHome()"><ion-icon name="arrow-back-sharp"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Enter Vehicle Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="fullheight xc">
+    <div class="floating-object">
+      <ion-item>
+        <ion-input #hat type="number" label="Hat#" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input #vin label="Vin#" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input #license label="License#" labelPlacement="floating"></ion-input>
+        <ion-input #state label="State" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input #milage type="number" label="Milage" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button style="width: 100%" (click)="submit(hat.value, vin.value, milage.value, license.value, state.value)">Submit</ion-button>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

@@ -490,19 +490,19 @@ export class PrinterService {
     
     let c = this.content;
     if (this.vehicle.vehicle === undefined) {return ""}
-    let veh: Vehicle = this.vehicle.vehicle;
+    let veh: {[key: string]: string} = this.vehicle.vehicle;
     c = c.replace("{{HAT-TYPE}}", "WO")
     c = c.replace("{{HAT-NUMBER}}", "Waiting")
     c = c.replace("{{DATE}}", date.toDateString())
-    c = c.replace("{{YEAR}}", veh.year);
-    c = c.replace("{{MAKE}}", veh.make);
-    c = c.replace("{{MODEL}}", veh.model + " " + veh.trim);
-    c = c.replace("{{LICENSE}}", "(" + veh.state + ")" + veh.license);
+    c = c.replace("{{YEAR}}", veh["year"]);
+    c = c.replace("{{MAKE}}", veh["make"]);
+    c = c.replace("{{MODEL}}", veh["model"] + " " + veh["trim"]);
+    c = c.replace("{{LICENSE}}", "(" + veh["state"] + ")" + veh["license"]);
     c = c.replace("{{PROD}}", "05/04");
-    c = c.replace("{{DRIVE}}", veh.drive);
-    c = c.replace("{{MILES}}", veh.miles);
-    c = c.replace("{{VIN}}", veh.vin.toUpperCase());
-    c = c.replace("{{SIZE}}", veh.size);
+    c = c.replace("{{DRIVE}}", veh["drive"]);
+    c = c.replace("{{MILES}}", veh["miles"]);
+    c = c.replace("{{VIN}}", veh["vin"].toUpperCase());
+    c = c.replace("{{SIZE}}", veh["size"]);
     c = c.replace("{{TRANSMISSION}}", "STAND");
     console.log(c);
 

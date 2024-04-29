@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Enter Vehicle Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-text>
+    The Vin decoder was unable to determine the vehicle information please enter it now.
+  </ion-text>
+  <div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div style="width: 50%; min-width: 360px;">
+      <ion-item>
+        <ion-input #year type="number" label="Year" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input #make label="Make" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input #model label="Model" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button style="width: 100%" (click)="submit(year.value, make.value, model.value)">Submit</ion-button>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

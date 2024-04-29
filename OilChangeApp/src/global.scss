@@ -24,3 +24,31 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+.fullheight {
+    height: 100%;
+}
+
+.xc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vcs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hcs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.floating-object{
+    width: 50%;
+    min-width: 360px;
+}

@@ -9,10 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './Components/components.module';
 import { InitializeAppService } from './Services/initialize-app.service';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: "http://192.168.0.90:5000/", options: {}}
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ComponentsModule],
+  imports: [BrowserModule, SocketIoModule.forRoot(config), IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ComponentsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 // import { SharedModule } from 'src/app/shared/shared.module';
 import { FilterBrowserComponent } from './filter-browser/filter-browser.component';
 import { UsersComponent } from './users/users.component';
+import { VehicleDataComponent } from './vehicle-data/vehicle-data.component';
 
 @NgModule({
     declarations: [
       FilterBrowserComponent,
-      UsersComponent
+      UsersComponent,
+      VehicleDataComponent
     ],
     imports: [
       CommonModule,
@@ -17,7 +19,8 @@ import { UsersComponent } from './users/users.component';
     ],
     exports: [
         FilterBrowserComponent,
-        UsersComponent
+        UsersComponent,
+        VehicleDataComponent
     ],
   })
   export class ComponentsModule { }

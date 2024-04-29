@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./Pages/home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'scan-vin',
+    loadChildren: () => import('./Pages/scan-vin/scan-vin.module').then( m => m.ScanVinPageModule)
+  },
 ];
 
 @NgModule({

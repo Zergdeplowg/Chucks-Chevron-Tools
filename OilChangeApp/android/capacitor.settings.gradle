@@ -28,3 +28,6 @@ project(':capacitor-keyboard').projectDir = new File('../node_modules/@capacitor
 
 include ':capacitor-status-bar'
 project(':capacitor-status-bar').projectDir = new File('../node_modules/@capacitor/status-bar/android')
+
+include ':wahr-capacitor-websocket-client'
+project(':wahr-capacitor-websocket-client').projectDir = new File('../node_modules/@wahr/capacitor-websocket-client/android')
