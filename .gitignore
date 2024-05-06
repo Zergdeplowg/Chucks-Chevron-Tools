@@ -68,6 +68,9 @@ testem.log
 Thumbs.db
 
 # python venv
-./Server/Lib/*
-./Server/Scripts/*
-./Server/pyvenv.cfg
+/Server/Lib/*
+/Server/Scripts/*
+/Server/pyvenv.cfg
+/Lib/*
+/Scripts/*
+/pyvenv.cfg
