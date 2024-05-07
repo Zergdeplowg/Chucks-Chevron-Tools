@@ -10,7 +10,7 @@ export class NetworkService {
 
   constructor() { }
 
-  apiURL= "http://192.168.0.90:5000/"
+  apiURL = "http://192.168.0.91:5000/";
 
   async getDataFromVin(vin: string){
     // const options: HttpOptions = {
@@ -44,13 +44,13 @@ export class NetworkService {
   }
 
   async getCurrentlyOnline(){
-    const opts: HttpOptions ={ url: this.apiURL + "users"}
+    const opts: HttpOptions ={ url: this.apiURL +"users"}
     return CapacitorHttp.get(opts);
   }
 
   async checkInVehicle(data: {[key:string]: string}){
     const opts: HttpOptions = {
-      url: this.apiURL + "checkin",
+      url: this.apiURL+ "checkin",
       headers: {"Content-Type": "applicaton/json"},
       data: data
     }

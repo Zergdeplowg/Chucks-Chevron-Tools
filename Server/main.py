@@ -6,7 +6,6 @@ import os
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*" : {"origins": "*"}})
-logging.getLogger('flask_cors').level = logging.DEBUG
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -86,6 +85,4 @@ def on_leave(data):
 
 
 if __name__ == '__main__':
-    
-    print(os.path.dirname(__file__), "this is updated")
-    socketio.run(app, debug = True, host = '0.0.0.0')
+    socketio.run(app, debug = True, host = '0.0.0.0', allow_unsafe_werkzeug=True)
