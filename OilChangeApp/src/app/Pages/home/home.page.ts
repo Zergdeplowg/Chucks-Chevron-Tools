@@ -24,9 +24,9 @@ export class HomePage implements OnInit {
     this.setVehInfo();
   }
 
-  testPrint(){
-    this.printer.testPrint();
-  }
+  // testPrint(){
+  //   this.printer.testPrint();
+  // }
 
   setVehInfo(){
     this.vehicleService.setVehicleData("3d7ku28d54g177036").then(() => this.readyToPrint = this.vehicleService.vehicleHasData);

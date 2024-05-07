@@ -10,6 +10,8 @@ export class NetworkService {
 
   constructor() { }
 
+  apiURL= "http://192.168.0.90:5000/"
+
   async getDataFromVin(vin: string){
     // const options: HttpOptions = {
     //   url: "https://www.pgfilters.com/wp-content/themes/astra/includes/custom_pages/vinSearch.php",
@@ -42,13 +44,13 @@ export class NetworkService {
   }
 
   async getCurrentlyOnline(){
-    const opts: HttpOptions ={ url: "http://192.168.0.90:5000/users"}
+    const opts: HttpOptions ={ url: this.apiURL + "users"}
     return CapacitorHttp.get(opts);
   }
 
   async checkInVehicle(data: {[key:string]: string}){
     const opts: HttpOptions = {
-      url: "http://192.168.0.90:5000/checkin",
+      url: this.apiURL + "checkin",
       headers: {"Content-Type": "applicaton/json"},
       data: data
     }
@@ -56,13 +58,18 @@ export class NetworkService {
   }
   async removeVehicle(vin: string){
     const opts: HttpOptions = {
-      url: "http://192.168.0.90:5000/remove/" + vin
+      url: this.apiURL + "remove/" + vin
     }
     return CapacitorHttp.post(opts);
   }
 
   async getUpdate(){
-    const opts: HttpOptions ={ url: "http://192.168.0.90:5000/update"}
+    const opts: HttpOptions ={ url: this.apiURL + "update"}
+    return CapacitorHttp.get(opts);
+  }
+
+  async getCheckInSheet(){
+    const opts: HttpOptions ={ url: this.apiURL + "checkinsheet"}
     return CapacitorHttp.get(opts);
   }
 }

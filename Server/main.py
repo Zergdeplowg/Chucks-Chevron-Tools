@@ -2,6 +2,7 @@ from flask import Flask, render_template, logging, request
 import logging
 from flask_cors import CORS
 from flask_socketio import SocketIO, join_room, leave_room, send
+import os
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*" : {"origins": "*"}})
@@ -21,6 +22,13 @@ def index():
 @app.get('/users')
 def handle_get_users():
     return connections
+
+@app.get('/checkinsheet')
+def handle_get_checkInSheet():
+    file = open(os.path.dirname(__file__) + "/templates/CheckinSheet.html")
+    data = file.read()
+    file.close()
+    return data
 
 @app.get("/update")
 def handle_update():
@@ -78,4 +86,6 @@ def on_leave(data):
 
 
 if __name__ == '__main__':
+    
+    print(os.path.dirname(__file__), "this is updated")
     socketio.run(app, debug = True, host = '0.0.0.0')
