@@ -10,7 +10,7 @@ export class NetworkService {
 
   constructor() { }
 
-  apiURL = "http://192.168.0.91:5000/";
+  apiURL = "http://67.160.84.101:5000/";
 
   async getDataFromVin(vin: string){
     // const options: HttpOptions = {

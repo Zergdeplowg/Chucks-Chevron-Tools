@@ -1,0 +1,18 @@
+{
+    "apps":
+    [
+        {
+            "app_name": "web",
+            "redirections": [
+                ["80","5005","TCP"]
+            ]
+        },
+        {
+            "app_name": "api",
+            "redirections": [
+                ["5000","5000","TCP"],
+                ["5000","5000","UDP"]
+            ]
+        }
+    ]
+}

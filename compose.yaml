@@ -1,4 +1,10 @@
 services:
+    upnp:
+      restart: always
+      network_mode: host  # works while the container runs
+      build:
+        context: upnpservice
+        network: host  # works during the build if needed
     api:
       build:
         context: Server
