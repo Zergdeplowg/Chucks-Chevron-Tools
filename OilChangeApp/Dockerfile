@@ -8,4 +8,5 @@ RUN ionic build --prod
 FROM nginx:alpine
 RUN rm -rf /user/share/nginx/html/*
 COPY --from=build /app/www/ /usr/share/nginx/html/
+COPY /nginx.conf /etc/nginx/conf.d/default.conf
 
