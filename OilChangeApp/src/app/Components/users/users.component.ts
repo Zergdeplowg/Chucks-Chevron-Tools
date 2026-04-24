@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 
  import { User } from '../../models/user';
  import { of, switchMap } from 'rxjs';
-import { StorageService } from 'src/app/Services/storage.service';
 
 @Component({
   selector: 'app-users',
@@ -17,38 +16,9 @@ export class UsersComponent  implements OnInit {
   userList: User[] = []
   isWeb: any
  
-  constructor(private storage: StorageService) {}
+  constructor() {}
  
   ngOnInit() {
-      try {
-          this.storage.userState().pipe(
-              switchMap(res => {
-              if (res) {
-                  return this.storage.fetchUsers();
-              } else {
-                  return of([]); // Return an empty array when res is false
-              }
-              })
-          ).subscribe(data => {
-              this.userList = data; // Update the user list when the data changes
-          });
- 
-          } catch(err) {
-          throw new Error(`Error: ${err}`);
-          }
-      }
-      async createUser(nameInput: any) {
-          await this.storage.addUser(nameInput.value);
-          nameInput.value = ""
-          console.log(this.userList, '#users')
-      }
- 
-      updateUser(user: User) {
-          const active = user.active === 0 ? 1 : 0
-          this.storage.updateUserById(user.id.toString(), active)
-      }
- 
-      deleteUser(user: User) {
-          this.storage.deleteUserById(user.id.toString())
-      }
+      
   }
+}

@@ -10,30 +10,6 @@
 <ion-content [fullscreen]="true">
   <!-- <app-users></app-users> -->
 
-  <!-- <div>
-    <ion-grid class="ion-text-center">
-      <ion-row class="ion-text-center">
-        <ion-col class="ion-text-center ion-justify-content-center">
-          <ion-button (click)="setVehInfo()">Set Veh Info</ion-button>
-        </ion-col>
-        <ion-col class="ion-text-center ion-justify-content-center">
-          <ion-button (click)="sendMessage()">Send Message</ion-button>
-        </ion-col>
-        <ion-col class="ion-text-center ion-justify-content-center">
-          <ion-button (click)="getData()">Get Data</ion-button>
-        </ion-col>
-        <ion-col class="ion-text-center ion-justify-content-center">
-          <ion-input label="hat#" labelPlacement="floating" #input type="number"></ion-input>
-          <ion-button (click)="checkin(input.value)">Check In</ion-button>
-          <ion-button (click)="remove(input.value)">Remove</ion-button>
-        </ion-col>
-        <ion-col class="ion-text-center ion-justify-content-center">
-          <ion-button [disabled]="!readyToPrint" (click)="testPrint()">Test Print</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div> -->
-
   <div class="fulheight xc">
     <ion-accordion-group class="floating-object">
       <ion-accordion *ngFor="let i of vehicleService.vehicleKeys" [value]="i">

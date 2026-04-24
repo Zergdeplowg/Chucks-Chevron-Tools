@@ -13,7 +13,7 @@
  
       <ion-col size="3">
       <ion-button
-      (click)="createUser(nameInput)" expand="block" fill="outline">
+        expand="block" fill="outline">
           <ion-icon name="add" slot="icon-only"></ion-icon>
       </ion-button>
       </ion-col>
@@ -23,15 +23,14 @@
       <ion-checkbox
       aria-label="Label"
       slot="start"
-      [checked]="user.active"
-      (ionChange)="updateUser(user)" >
+      [checked]="user.active" >
       </ion-checkbox>
  
       <span>
        {{user.name}} 
       </span>
  
-      <ion-button slot="end" (click)="deleteUser(user)" fill="clear" color="danger">
+      <ion-button slot="end" fill="clear" color="danger">
       <ion-icon name="trash" slot="icon-only"></ion-icon>
       </ion-button>
   </ion-item>
