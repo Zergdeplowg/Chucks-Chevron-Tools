@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './Components/components.module';
 import { InitializeAppService } from './Services/initialize-app.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: "http://67.160.84.101:5000/", options: {}}
+import { environment } from 'src/environments/environment';
+const config: SocketIoConfig = { url: environment.api_url, options: {}}
 
 @NgModule({
   declarations: [AppComponent],

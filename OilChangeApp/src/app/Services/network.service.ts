@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CapacitorHttp, HttpOptions } from '@capacitor/core';
 import { Vehicle } from '../models/vehicle';
+import { environment } from 'src/environments/environment';
 // import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class NetworkService {
 
   constructor() { }
 
-  apiURL = "http://67.160.84.101:5000/";
+  apiURL = environment.api_url;
 
   async getDataFromVin(vin: string){
     // const options: HttpOptions = {
