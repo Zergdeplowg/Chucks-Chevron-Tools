@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./Pages/home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'supervisor/:id',
+    loadChildren: () => import('./Pages/supervisor/supervisor.module').then( m => m.SupervisorPageModule)
+  },
 ];
 
 @NgModule({

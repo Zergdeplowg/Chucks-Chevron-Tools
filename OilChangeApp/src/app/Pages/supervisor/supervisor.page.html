@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Supervisor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      @for (page of pages; track page){
+        <ion-tab-button [tab]="page">
+          <ion-label>{{page}}</ion-label>
+        </ion-tab-button>
+      }
+    </ion-tab-bar>
+    @for (page of pages; track page){
+      <ion-tab [tab]=page>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>{{page}}</ion-title>
+            <ion-buttons slot="end">
+              <ion-button>Manage</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-accordion-group [value]="active" (ionChange)="onAccordionChange($event)">
+            @for (item of jobCounts; track item.name){
+              <ion-accordion [value]="item.name" [id]="item.name">
+                
+                <ion-item slot="header">
+                  <ion-label slot="start" position="fixed">{{item.name}}</ion-label>
+                  <!-- Progress bar container -->
+                  <ion-item style="width: 100%;">
+                    <ion-progress-bar infinite color="success" class="full-bar"></ion-progress-bar>
+                  
+                    <!-- Pill-shaped badges containing job counts -->
+                     @for (badge of item.badges; track badge){
+                        @if (badge.count > 0){
+                            @if (badge.position > 50) {
+                          <ion-badge button
+                            (mouseenter)="onMouseEnter(badge)"
+                            (mouseleave)="onMouseLeave(badge)"
+                            (click)="$event.stopPropagation();onBadgeClick(item.name, badge);"
+                            [title]="badge.stage"
+                            class="stage-badge-pill"
+                            [color]="badge.color"
+                            [style.right]="'calc(' + (100 - badge.position) + '%)'">
+                            {{ badge.count }}
+                          </ion-badge>
+                        } @else {
+                          <ion-badge button
+                            (mouseenter)="onMouseEnter(badge)"
+                            (mouseleave)="onMouseLeave(badge)"
+                            (click)="$event.stopPropagation();onBadgeClick(item.name, badge);"
+                            [title]="badge.stage"
+                            class="stage-badge-pill"
+                            [color]="badge.color"
+                            [style.left]="'calc(' + badge.position + '%)'">
+                            {{ badge.count }}
+                          </ion-badge>
+                        }
+                      }
+                    }
+                  </ion-item>
+                </ion-item>
+                
+                <!-- Accordion content (shown when expanded) -->
+                <ion-list slot="content">
+                  <ion-item>
+                    <ion-icon name="empty-circle" slot="start"></ion-icon>
+                    <ion-title slot="start" position="fixed">Step</ion-title>
+                    <ion-label slot="start" style="width: 100%;">Count</ion-label>
+                  </ion-item>
+                    @for (detail of item.badges; track detail.stage){
+                        <ion-item 
+                          [id]="item.name+'-'+detail.stage" 
+                          color="{{detail.highlight ? 'warning': ''}}"
+                          (mouseleave)="onMouseLeave(detail)"
+                        >
+                          <ion-icon
+                            name="{{ detail.count > 0 ? 'checkmark-circle' : 'empty-circle' }}"
+                            slot="start"></ion-icon>
+                          <ion-title slot="start" position="fixed">{{detail.stage}}</ion-title>
+                          <ion-label slot="start" style="width: 100%;">{{detail.count}}</ion-label>
+                        </ion-item>
+                    }
+                </ion-list>
+              
+              </ion-accordion>
+            }
+          </ion-accordion-group>
+        </ion-content>
+      </ion-tab>
+    }
+  </ion-tabs>
+</ion-content>
